@@ -5,9 +5,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public Vector3 lunchVelocity;
-
     public bool isPlay = false;
 
+
+    private Vector3 ballStartPos;
     [SerializeField]
     private Rigidbody ballRigidbody;
 
@@ -17,7 +18,7 @@ public class Ball : MonoBehaviour
     {
         ballRigidbody.useGravity = false;
         //BallLunch(lunchVelocity);
-      
+        ballStartPos = transform.position;
     }
 
     public void BallLunch(Vector3 velocity)
@@ -29,6 +30,15 @@ public class Ball : MonoBehaviour
         ballRigidbody.velocity = velocity;
     }
 
+    public void Reset()
+    {
+        Debug.Log("Reset");
+        isPlay = false;
+        transform.position = ballStartPos;
+        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.angularVelocity = Vector3.zero;
+        ballRigidbody.useGravity = true;
+    }
   
 
     // Update is called once per frame
