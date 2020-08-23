@@ -163,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &200799199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &740260467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926907127
 GameObject:
@@ -1335,6 +1335,7 @@ GameObject:
   - component: {fileID: 1926907130}
   - component: {fileID: 1926907132}
   - component: {fileID: 1926907129}
+  - component: {fileID: 1926907133}
   m_Layer: 0
   m_Name: 'PinSetter '
   m_TagString: Untagged
@@ -1374,6 +1375,7 @@ MonoBehaviour:
   distanceToRaise: 0.4
   pinSet: {fileID: 1484596148042938023, guid: f732936353ac8b6428f5f33be9bdfc4b, type: 3}
   ball: {fileID: 157563379}
+  anim: {fileID: 0}
 --- !u!65 &1926907130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1416,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1926907133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926907127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879409c930a33914aad25ffc1d73155e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2041633650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 108290, guid: 520b0120c6eea764c957f9a8e397776b,
@@ -1639,6 +1653,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8105107932138043630, guid: 2f31fb8b497610743b430e91ee1cdcd7,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1926907132}
     - target: {fileID: 8105107932138043632, guid: 2f31fb8b497610743b430e91ee1cdcd7,
         type: 3}
       propertyPath: m_Name
@@ -1731,7 +1750,7 @@ PrefabInstance:
     - target: {fileID: 8908384841652580746, guid: 1399ce1671e269745b69045b40158429,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8908384841652580746, guid: 1399ce1671e269745b69045b40158429,
         type: 3}

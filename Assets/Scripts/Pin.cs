@@ -31,13 +31,13 @@ public class Pin : MonoBehaviour
        // print(name+tiltInx + "and " +name+ tiltInZ);
         if (tiltInx < standingTreshold && tiltInZ < standingTreshold)
         {
-            print("this is if true");
+            //print("this is if true");
             return true;
             
         }
         else
         {
-            print("this is if false");
+           // print("this is if false");
             return false;
            
         }

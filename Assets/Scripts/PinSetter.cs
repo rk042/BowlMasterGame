@@ -13,8 +13,11 @@ public class PinSetter : MonoBehaviour
 
     [SerializeField]
     private Ball ball;
+    [SerializeField]
+    private Animator anim;
     private float lastChangeTime;
     private bool ballEnteredBox;
+    private int lastSutterCount = 10;
     void Start()
     {
         
@@ -71,12 +74,20 @@ public class PinSetter : MonoBehaviour
     }
     void PinsHaveSettled()
     {
+        int pinFall = lastSutterCount - CountStanding();
+        lastSutterCount = CountStanding();
+        print("pinFall " + pinFall);
+        print("LastSutterCount"+lastSutterCount);
         ball.Reset();
         lastChangeTime = -1;
         ballEnteredBox = false;
         standingDisplay.color = Color.green;
+        if (pinFall ==10)
+        {
+            anim.SetTrigger("ResetTrigger");
+        }
     }
-    
+ 
     int CountStanding()
     {
         int standing = 0;
@@ -91,14 +102,7 @@ public class PinSetter : MonoBehaviour
         return standing;
     }
     
-    void OnTriggerExit(Collider col)
-    {
-        GameObject thingLeft = col.gameObject;
-        if(thingLeft.GetComponent<Pin>())
-        {
-            Destroy(thingLeft);
-        }
-    }
+ 
     void OnTriggerEnter(Collider col)
     {
         GameObject thingHit = col.gameObject;

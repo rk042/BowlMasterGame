@@ -11,7 +11,8 @@ public class Ball : MonoBehaviour
     private Vector3 ballStartPos;
     [SerializeField]
     private Rigidbody ballRigidbody;
-
+    [SerializeField]
+    private Animator anim;
     [SerializeField]
     private AudioSource BallRunSound;
     void Start()
@@ -30,8 +31,11 @@ public class Ball : MonoBehaviour
         ballRigidbody.velocity = velocity;
     }
 
+    // ball reset after one throuv
     public void Reset()
     {
+        anim.SetTrigger("TidyTrigger");
+
         Debug.Log("Reset");
         isPlay = false;
         transform.position = ballStartPos;
