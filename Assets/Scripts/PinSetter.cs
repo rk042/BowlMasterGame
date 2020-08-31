@@ -10,11 +10,11 @@ public class PinSetter : MonoBehaviour
     public float distanceToRaise = 0.40f;
     public GameObject pinSet;
     public bool ballEnteredBox;
-    
- 
+
+    private Ball ball;
     void Start()
     {
-        
+        ball = gameObject.GetComponent<Ball>();
     }
 
     public void RaisePins()
@@ -39,6 +39,7 @@ public class PinSetter : MonoBehaviour
     {
         Debug.Log("renewpins");
         Instantiate(pinSet, new Vector3(0, 30, 1829),Quaternion.identity);
+        ball.Reset();
     }
     // Update is called once per frame
     void Update()

@@ -8,20 +8,21 @@ public class Ball : MonoBehaviour
     public Vector3 lunchVelocity;
     public bool isPlay = false;
 
-    [SerializeField]
+   
     private PinSetter pinSetter;
     private Vector3 ballStartPos;
-    [SerializeField]
     private Rigidbody ballRigidbody;
-    [SerializeField]
     private Animator anim;
-    [SerializeField]
     private AudioSource BallRunSound;
    
     void Start()
     {
+        ballRigidbody = GameObject.FindObjectOfType<Rigidbody>();
+        anim = GameObject.FindObjectOfType<Animator>();
+        BallRunSound = GameObject.FindObjectOfType<AudioSource>();
+        pinSetter = GameObject.FindObjectOfType<PinSetter>();
         ballRigidbody.useGravity = false;
-       
+        
         //BallLunch(lunchVelocity);
         ballStartPos = transform.position;
     }
@@ -38,6 +39,7 @@ public class Ball : MonoBehaviour
     // ball reset after one throuv
     public void Reset()
     {
+        
         anim.SetTrigger("TidyTrigger");
         transform.rotation = Quaternion.Euler(0, 0, 0);
         Debug.Log("TidyTrigger");

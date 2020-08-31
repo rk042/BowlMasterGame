@@ -12,23 +12,27 @@ public class PinCount : MonoBehaviour
     private float lastChangeTime;
     private int lastSutterCount = 10;
 
-    [SerializeField]
+   
     private Ball ball;
-    [SerializeField]
+    
     private Animator anim;
-    [SerializeField]
+   
     private PinSetter pinsetter;
-    [SerializeField]
-    private PinSetter pinsettter;
+
+    private ScoreDisplay scoredisplay;
+  
     void Start()
     {
-        
+        ball = GameObject.FindObjectOfType<Ball>();
+        anim = GameObject.FindObjectOfType<Animator>();
+        pinsetter = GameObject.FindObjectOfType<PinSetter>();
+        scoredisplay = GameObject.FindObjectOfType<ScoreDisplay>();
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "Ball")
         {
-            pinsettter.ballEnteredBox = true;
+            pinsetter.ballEnteredBox = true;
             Debug.Log("collider enter");
         }
 
@@ -85,6 +89,8 @@ public class PinCount : MonoBehaviour
         if (pinFall < 10)
         {
             ball.Reset();
+            print("reset pinfall < 10"+"---"+pinFall);
+            scoredisplay.getpincount(pinFall);
         }
 
         lastChangeTime = -1;
@@ -93,8 +99,13 @@ public class PinCount : MonoBehaviour
         pinsetter.ballEnteredBox = false;
         if (pinFall == 10)
         {
+            Debug.Log("reset trigger");
             anim.SetTrigger("ResetTrigger");
+            ball.Reset();
             lastSutterCount = 10;
+            
         }
     }
+
+    
 }

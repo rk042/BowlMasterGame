@@ -127,8 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lunchVelocity: {x: 0, y: 0, z: 400}
   isPlay: 0
-  ballRigidbody: {fileID: 8105107932138043631}
-  BallRunSound: {fileID: 8105107932138043625}
 --- !u!82 &8105107932138043625
 AudioSource:
   m_ObjectHideFlags: 0
@@ -237,4 +235,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42b97ba1d0c4d943b6f030c979b2f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 8105107932138043630}
